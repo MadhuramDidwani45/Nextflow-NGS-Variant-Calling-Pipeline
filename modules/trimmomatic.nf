@@ -1,7 +1,7 @@
 process TRIMM{
     tag "$sample"
 
-    publishDir("params.trimmed_reads", mode: 'copy')
+    publishDir("$params.trimmed_reads", mode: 'copy')
 
     input:
     tuple val(sample), path(reads)

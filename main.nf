@@ -4,6 +4,9 @@ include {TRIMM} from './modules/trimmomatic'
 include {TRIMMED_FASTQC} from './modules/trimmed_fastqc'
 include {BOWTIE2_INDEX} from './modules/bowtie2_index'
 include { BOWTIE2_ALIGN } from './modules/bowtie2_align'
+include {SAMTOOLS} from './modules/samtools'
+include {ADD_READ_GROUPS} from './modules/gatk_add_read_groups'
+
 
 workflow {
 
@@ -21,5 +24,9 @@ workflow {
 
     index_ch = BOWTIE2_INDEX(ref_ch)
 
-    BOWTIE2_ALIGN(trimmed_ch, index_ch)
+    align_ch = BOWTIE2_ALIGN(trimmed_ch, index_ch)
+
+    bam_ch = SAMTOOLS(align_ch)
+
+    ADD_READ_GROUPS(bam_ch)
 }

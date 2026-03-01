@@ -1,25 +1,6 @@
-<div align="center">
-
-# nf-pipeline/variantcall
-
-**A Nextflow DSL2 pipeline for germline short-read variant calling from SRA data**
-
-[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
-[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)
-[![GATK4](https://img.shields.io/badge/GATK-4.x-blue)](https://gatk.broadinstitute.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-</div>
-
----
-
 ## Overview
 
 This pipeline performs end-to-end germline variant calling starting from an SRA accession number (`.sra` file) and producing annotated VCF output. It is built with **Nextflow DSL2**, using modular process definitions and supports `-resume` for efficient re-runs.
-
-**Test accession:** `ERR13985875`  
-**Reference genome:** GRCh38 (UCSC chr-style, `GCA_000001405.15_GRCh38_no_alt_analysis_set`)  
-**Known sites:** Mills & 1000G Gold Standard Indels (hg38)
 
 ---
 

@@ -8,7 +8,7 @@ process ADD_READ_GROUPS {
     tuple val(sample), path(bam), path(bai)
 
     output:
-    tuple val(sample), path("${sample}.rg.bam")
+    tuple val(sample), path("${sample}.rg.bam"), path("${sample}.rg.bam.bai")
 
     script:
     """
@@ -20,5 +20,7 @@ process ADD_READ_GROUPS {
         --RGPL ILLUMINA \
         --RGPU unit1 \
         --RGSM ${sample}
+
+    samtools index ${sample}.rg.bam
     """
 }
